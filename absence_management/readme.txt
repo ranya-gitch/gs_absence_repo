@@ -11,35 +11,58 @@
 6- Enter the following data into your database:
 
 
-		  INSERT INTO `role` (`idRole`, `nomRole`) VALUES
-			(1, 'ROLE_ADMIN'),
-			(2, 'ROLE_PROF'),
-			(3, 'ROLE_CADRE_ADMIN'),
-			(4, 'ROLE_STUDENT');
-			
-						
-			INSERT INTO `utilisateur` (`idUtilisateur`, `cin`, `email`, `nom`, `nomArabe`, `photo`, `prenom`, `prenomArabe`, `telephone`) VALUES
-			(8, 'AAAA', 'tarik@tarik.fr', 'BOUDAA', 'Tarik', NULL, 'Tarik', 'Boudaa', '060000000'),
-			(9, 'ABnh', 'med1@med.com', 'BOUDAA', 'med', NULL, 'Mohamed', 'med', '2522255'),
-			(10, 'dqsdqsd', 'dqsdsqd', 'dqdqsd', 'dqsdqdqsd', NULL, 'dsqd', 'dqdqd', '12589632'),
-			(11, 'AB', 'dsqdqs', 'dsqd', 'dsqdqsd', NULL, 'aaa', 'dqsdqsd', '12589632');
-            
-			
-			INSERT INTO `enseignant` (`specialite`, `idEnseighant`) VALUES
-			('math', 10);			
-			
-			
-			INSERT INTO `etudiant` (`cne`, `dateNaissance`, `idEtudiant`) VALUES
-			('aaaa', NULL, 9),
-			('dsqd', NULL, 11);		
-			
+	
+INSERT INTO `auteur` (`id`, `nom`, `prenom`) VALUES
+(1, 'test nom auth A', 'test prenom auth A'),
+(2, 'test nom auth B', 'test prenom auth B');
 
-			INSERT INTO `compte` (`idCompte`, `accepteDemandeAutorisationAbsence`, `accountNonExpired`, `accountNonLocked`, `afficheEmail`, `affichePhoto`, `credentialsNonExpired`, `disconnectAccount`, `enabled`, `login`, `password`, `idUtilisateur`, `idRole`) VALUES
-			(8, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'admin', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 8, 1),
-			(9, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'prof', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 9, 2),
-			(12, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'student', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 11, 4),
-			(13, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'cadre_admin', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 11, 3);
-			
+
+INSERT INTO `livre` (`id`, `titre`, `codeLivre`) VALUES
+(1, 'tttt', 'AA');
+
+INSERT INTO `auteur_livre` (`id_auteur`, `id_livre`) VALUES
+(1, 1),
+(2, 1);
+
+
+INSERT INTO `role` (`idRole`, `nomRole`) VALUES
+(1, 'ROLE_ADMIN'),
+(2, 'ROLE_PROF'),
+(3, 'ROLE_CADRE_ADMIN'),
+(4, 'ROLE_STUDENT'),
+(5, 'ROLE_BIBLIO');
+
+
+INSERT INTO `utilisateur` (`idUtilisateur`, `cin`, `email`, `nom`, `nomArabe`, `photo`, `prenom`, `prenomArabe`, `telephone`) VALUES
+(8, 'AAAA', 'tarik@tarik.fr', 'BOUDAA', 'Tarik', NULL, 'Tarik', 'Boudaa', '060000000'),
+(9, 'ABnh1', 'med1@med.com', 'BOUDAA', 'med', NULL, 'Mohamed', 'med', '2522255'),
+(10, 'dqsdqsd', 'dqsdsqd', 'dqdqsd', 'dqsdqdqsd', NULL, 'dsqd', 'dqdqd', '12589632'),
+(11, 'AB', 'dsqdqs', 'dsqd', 'dsqdqsd', NULL, 'aaa', 'dqsdqsd', '12589632'),
+(12, 'BBBB', 'karama@karam.fr', 'KARAM', 'KARAM', NULL, 'KARAM', 'KARAM', '0666666666');
+
+
+INSERT INTO `cadreadministrateur` (`grade`, `idCardreAdmin`) VALUES
+('gradeeee', 8),
+('Admin 2eme grade', 12);
+
+INSERT INTO `enseignant` (`specialite`, `idEnseighant`) VALUES
+('math', 10);
+
+INSERT INTO `etudiant` (`cne`, `dateNaissance`, `idEtudiant`) VALUES
+('aaaa', NULL, 9),
+('dsqd', NULL, 11);
+
+
+
+INSERT INTO `compte` (`idCompte`, `accepteDemandeAutorisationAbsence`, `accountNonExpired`, `accountNonLocked`, `afficheEmail`, `affichePhoto`, `credentialsNonExpired`, `disconnectAccount`, `enabled`, `login`, `password`, `idUtilisateur`, `idRole`) VALUES
+(8, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'admin', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 8, 1),
+(9, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'prof', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 9, 2),
+(12, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'student', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 11, 4),
+(13, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'cadre_admin', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 11, 3),
+(14, b'0', b'1', b'1', b'0', b'0', b'1', b'0', b'1', 'biblio', '{bcrypt}$2a$10$vsjRwUSUi2B/jlw4ATXEN.B2IIcVY8ourImFZnWcW1tLz3G6mLfpe', 12, 5);
+
+
+
 			
 
 
