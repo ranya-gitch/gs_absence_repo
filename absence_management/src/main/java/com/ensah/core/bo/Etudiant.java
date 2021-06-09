@@ -19,6 +19,7 @@ public class Etudiant extends Utilisateur {
 	@OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL , targetEntity = Inscription.class)
 	private List<Inscription> inscriptions;
 
+
 	public String getCne() {
 		return cne;
 	}

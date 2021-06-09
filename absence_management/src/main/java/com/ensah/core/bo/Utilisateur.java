@@ -45,6 +45,10 @@ public class Utilisateur {
 	private String prenomArabe;
 
 	private String photo;
+	
+	
+	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL , targetEntity = Emprunt.class)
+	private List<Emprunt> emprunts;
 
 	@OneToMany(mappedBy = "proprietaire" , cascade = CascadeType.ALL, targetEntity = Compte.class)
 	private Set<Compte> comptes;

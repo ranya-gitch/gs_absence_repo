@@ -2,8 +2,13 @@ package com.ensah.genericdao;
 
 public class EntityNotFoundException extends RuntimeException {
 
+
 	public EntityNotFoundException() {
 		super();
+	}
+
+	public EntityNotFoundException(String message) {
+		super(message);
 	}
 
 	public EntityNotFoundException(String message, Throwable cause, boolean enableSuppression,
@@ -13,10 +18,6 @@ public class EntityNotFoundException extends RuntimeException {
 
 	public EntityNotFoundException(String message, Throwable cause) {
 		super(message, cause);
-	}
-
-	public EntityNotFoundException(String message) {
-		super(message);
 	}
 
 	public EntityNotFoundException(Throwable cause) {

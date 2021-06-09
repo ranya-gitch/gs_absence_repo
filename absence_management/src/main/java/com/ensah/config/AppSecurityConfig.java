@@ -87,6 +87,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter { // Il faut
 																		// par /admin/
 				.antMatchers("/prof/**").hasRole("PROF") // Le role ADMIN accèdent aux requete commençant par /admin/
 				.antMatchers("/admin/**").hasRole("ADMIN") // Le role ADMIN accèdent aux requete commençant par /admin/
+				.antMatchers("/biblio/**").hasRole("BIBLIO") // Le role ADMIN accèdent aux requete commençant par /admin/
 
 				// TODO : Vous pouvez ajouter les configurations nécessaires si vous avez
 				// d'autres rôles

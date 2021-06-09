@@ -67,7 +67,8 @@ public class RedirectionAfterAuthenticationSuccessHandler implements Authenticat
 		roleTargetUrlMap.put("ROLE_CADRE_ADMIN", "/cadreadmin/showHome"); 
 		roleTargetUrlMap.put("ROLE_PROF", "/prof/showHome"); 
 		roleTargetUrlMap.put("ROLE_ADMIN", "/admin/showAdminHome"); 
-		
+		roleTargetUrlMap.put("ROLE_BIBLIO", "/biblio/showHome"); 
+
 		//Vous pouvez laisser ce code sans changement
 		final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (final GrantedAuthority grantedAuthority : authorities) {

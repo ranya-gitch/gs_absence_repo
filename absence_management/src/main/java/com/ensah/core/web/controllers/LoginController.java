@@ -20,8 +20,6 @@ public class LoginController {
 	@Autowired
 	private HttpSession httpSession;
 
-
-
 	/**
 	 * Récupère les données de l'utilisateur connecté du contexte de securité et le
 	 * stocke dans un objet personnalisé à enregistrer dans la session http
@@ -58,8 +56,6 @@ public class LoginController {
 	@GetMapping("/showMyLoginPage")
 	public String showLoginForm() {
 
-		
-		
 		return "loginForm";
 	}
 
@@ -74,8 +70,8 @@ public class LoginController {
 	public String showStudentHomePage(Model m) {
 
 		UserAndAccountInfos infoUser = getUserAccount();
-		m.addAttribute("userInfos", infoUser);		
-		
+		m.addAttribute("userInfos", infoUser);
+
 		return "student/userHomePage";
 
 	}
@@ -95,6 +91,15 @@ public class LoginController {
 		UserAndAccountInfos infoUser = getUserAccount();
 		m.addAttribute("userInfos", infoUser);
 		return "cadreadmin/userHomePage";
+
+	}
+
+	@GetMapping("/biblio/showHome")
+	public String showBiblioHomePage(Model m) {
+
+		UserAndAccountInfos infoUser = getUserAccount();
+		m.addAttribute("userInfos", infoUser);
+		return "biblio/userHomePage";
 
 	}
 

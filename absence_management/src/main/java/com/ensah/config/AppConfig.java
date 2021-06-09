@@ -102,7 +102,7 @@ public class AppConfig implements WebMvcConfigurer {
 		sessionFactory.setAnnotatedClasses(Absence.class, CadreAdministrateur.class, Compte.class, Conversation.class,
 				Coordination.class, Enseignant.class, Etudiant.class, Filiere.class, Inscription.class,
 				JournalisationEvenements.class, Matiere.class, Message.class, Module.class, Niveau.class,
-				Notification.class, PieceJustificative.class, Role.class, TypeSeance.class, Utilisateur.class);
+				Notification.class, PieceJustificative.class, Role.class, TypeSeance.class, Utilisateur.class, Livre.class, Auteur.class, Emprunt.class);
 
 		// Tracer dans le journal pour des raisons juste de débougage
 		// que la session Factory a été bien crée
