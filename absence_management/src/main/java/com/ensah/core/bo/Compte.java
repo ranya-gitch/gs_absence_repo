@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Compte {
 
@@ -46,9 +48,11 @@ public class Compte {
 	@JoinColumn(name="idRole")
 	private Role role;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "compte", cascade = CascadeType.ALL, targetEntity=Notification.class)
 	private List<Notification> notifications;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "expediteur", cascade = CascadeType.ALL, targetEntity=Message.class)
 	private List<Message> messagesEnvoyes;
 
@@ -57,10 +61,11 @@ public class Compte {
 
 	@OneToMany(mappedBy = "createurConversation", cascade = CascadeType.ALL, targetEntity=Conversation.class)
 	private List<Conversation> conversationsCrees;
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "compte", cascade = CascadeType.ALL, targetEntity=JournalisationEvenements.class)
 	private List<JournalisationEvenements> evenements;
 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="idUtilisateur")
 	private Utilisateur proprietaire;

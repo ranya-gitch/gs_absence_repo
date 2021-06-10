@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Livre {
 	
@@ -23,9 +25,11 @@ public class Livre {
 	
 	private String codeLivre;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "livre", cascade = CascadeType.ALL )
 	private List<Emprunt> emprunts;
 	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "auteur_livre",
 	joinColumns = @JoinColumn(name = "id_livre"),

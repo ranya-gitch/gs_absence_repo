@@ -20,6 +20,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur {
@@ -44,12 +46,14 @@ public class Utilisateur {
 
 	private String prenomArabe;
 
+	@JsonIgnore
 	private String photo;
 	
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL , targetEntity = Emprunt.class)
 	private List<Emprunt> emprunts;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "proprietaire" , cascade = CascadeType.ALL, targetEntity = Compte.class)
 	private Set<Compte> comptes;
 

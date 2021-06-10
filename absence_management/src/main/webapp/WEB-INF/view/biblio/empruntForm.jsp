@@ -5,7 +5,34 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
 
 
-<jsp:include page="../fragments/adminHeader.jsp" />
+<jsp:include page="../fragments/userheader.jsp" />
+
+<script>
+	function getPersonByCin(cin) {
+
+		$.getJSON(
+				"${pageContext.request.contextPath}/biblio/getUserByCinJson?cin="
+						+ $('#cin').val(), function(data) {
+					
+
+					$('#person').html('<p style="color:green">Nom :' + data.nom + ' Prénom :' + data.prenom +"</p>")
+
+				});
+
+	}
+
+	function getBookByCode(code) {
+
+		$.getJSON(
+				"${pageContext.request.contextPath}/biblio/getBookByCodeJson?code="
+						+ $('#code').val(), function(data) {
+
+							$('#book').html('<p style="color:green">Titre :' + data.titre +"</p>")
+
+				});
+
+	}
+</script>
 
 <div class="container">
 
@@ -35,25 +62,25 @@
 		<f:form
 			action="${pageContext.request.contextPath}/biblio/realiserEmprunt"
 			method="POST" modelAttribute="empruntModel">
-	
+
 
 
 			<div class="row">
 				<div class="col">
 					<label>Saisir la CIN de la personne</label>
 					<f:input path="utilisateur.cin" type="text" class="form-control"
-						placeholder="cin" />
+						id="cin" placeholder="cin" oninput="getPersonByCin();" />
 					<f:errors path="utilisateur.cin" class="text-danger" />
 				</div>
-
+				<div id="person"></div>
 				<div class="col">
 					<label>Saisir le code sur livre</label>
 					<f:input path="livre.codeLivre" type="text" class="form-control"
-						placeholder="Code Livre" />
+						id="code" placeholder="Code Livre" oninput="getBookByCode();" />
 					<f:errors path="livre.codeLivre" class="text-danger" />
 				</div>
 			</div>
-
+			<div id="book"></div>
 
 
 			<div style="text-align: right">

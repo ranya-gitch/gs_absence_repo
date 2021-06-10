@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ensah.core.bo.Auteur;
 import com.ensah.core.bo.Emprunt;
 import com.ensah.core.bo.Livre;
 import com.ensah.core.bo.Utilisateur;
+import com.ensah.core.dao.IAuteurDao;
 import com.ensah.core.dao.IEmpruntDao;
 import com.ensah.core.dao.ILivreDao;
 import com.ensah.core.dao.IUtilisateurDao;
@@ -25,6 +27,9 @@ public class GsLivresServicesImpl implements IGsLivresServices {
 
 	@Autowired
 	private ILivreDao livreDao;
+	
+	@Autowired
+	private IAuteurDao authorDao;
 
 	@Autowired
 	private IEmpruntDao empruntDao;
@@ -70,6 +75,12 @@ public class GsLivresServicesImpl implements IGsLivresServices {
 		emprunt.setDateEmprunt(new Date());
 		empruntDao.create(emprunt);
 
+	}
+
+	@Override
+	public List<Auteur> getAllAuthors() {
+		
+		return authorDao.getAll();
 	}
 
 }
