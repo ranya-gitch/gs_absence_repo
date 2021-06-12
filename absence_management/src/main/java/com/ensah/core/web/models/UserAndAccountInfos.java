@@ -14,18 +14,21 @@ public class UserAndAccountInfos {
 	
 	private String email;
 	
+	private String roleName;
+	
 	
 	public UserAndAccountInfos() {
 	}
 	
 
-	public UserAndAccountInfos(Long idPersonne, Long idCompte, String login, String nom, String prenom, String email) {
+	public UserAndAccountInfos(Long idPersonne, Long idCompte, String login, String nom, String prenom, String email,String roleName) {
 		this.idPersonne = idPersonne;
 		this.idCompte = idCompte;
 		this.login = login;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
+		this.roleName = roleName;
 	}
 
 	
@@ -84,6 +87,16 @@ public class UserAndAccountInfos {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 	
 	

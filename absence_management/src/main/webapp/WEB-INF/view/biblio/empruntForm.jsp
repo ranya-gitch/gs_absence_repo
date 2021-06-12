@@ -10,26 +10,31 @@
 <script>
 	function getPersonByCin(cin) {
 
-		$.getJSON(
-				"${pageContext.request.contextPath}/biblio/getUserByCinJson?cin="
+		success: $.getJSON(
+				"${pageContext.request.contextPath}/biblio/api/getUserByCinJson?cin="
 						+ $('#cin').val(), function(data) {
 					
 
 					$('#person').html('<p style="color:green">Nom :' + data.nom + ' Prénom :' + data.prenom +"</p>")
 
 				});
+        error: 
+			$('#person').html('<p style="color:red">No such cin</p>')
+
 
 	}
 
 	function getBookByCode(code) {
 
-		$.getJSON(
-				"${pageContext.request.contextPath}/biblio/getBookByCodeJson?code="
+		success: $.getJSON(
+				"${pageContext.request.contextPath}/biblio/api/getBookByCodeJson?code="
 						+ $('#code').val(), function(data) {
 
 							$('#book').html('<p style="color:green">Titre :' + data.titre +"</p>")
 
 				});
+    error: 
+		$('#book').html('<p style="color:red">No such title</p>')
 
 	}
 </script>

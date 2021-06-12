@@ -40,7 +40,7 @@
 						<form
 							action="${pageContext.request.contextPath}/authenticateTheUser"
 							class="login-form" method="POST">
-${SPRING_SECURITY_LAST_EXCEPTION.message}
+
 							<c:if test="${param.error!=null}">
 							
 								<c:choose>
